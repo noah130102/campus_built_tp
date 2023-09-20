@@ -1,0 +1,9 @@
+I havent deployed my application because i have already exhausted my free trial for deployment on various sites and nowadays it is 
+very hard to find free deployment hosting application.
+This application is basically a clone of https://drive.google.com/file/d/1_fgh3cjb-kZmdDw1vnpWGM9pBGFi_3wh/view and all the info is 
+saved onto local storage of browser and can be retrieved from there.
+If you want to check the info you can also check in application section in inspect. Also i have encryped the password So, it is not 
+visible to the user directly.
+
+
+Thank You for your time to analyse my application.
