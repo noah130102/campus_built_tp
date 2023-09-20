@@ -1,0 +1,109 @@
+/* body {
+    background-color:#1c447c;
+    margin: 0; 
+    padding: 0;
+  } */
+body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+    background-color:#1c447c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /* background-color: #064a77; */
+    
+  }
+  
+  /* Style the form */
+  .form {
+    /* background: #064a77;  */
+    width: 40%;
+    padding: 110px;
+    color: aliceblue;
+    text-align: center;
+  }
+  .tes{
+    padding: 9px;
+    width: 100%;
+    /* height: 10px; */
+  }
+
+  .tes2{
+    display: flex;
+    justify-content: space-between;
+    /* text-align: left; */
+  }
+
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .input-container {
+    position: relative;
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .input2 {
+    background-color: transparent;
+    border: 1px solid antiquewhite;
+    width: 100%;
+    height: 30px;
+    color: aliceblue;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .input-label {
+    position: absolute;
+    top: -8px; /* Adjust this value to control the vertical position */
+    left: 50%;
+    transform: translateX(-50%); /* Center text horizontally */
+    background-color: #1c447c;
+    padding: 0 10px; /* Adjust padding to adjust width */
+    color: aliceblue;
+    font-size: 10px;
+    
+  }
+  
+  
+
+  .tes3{
+    text-align: right;
+    justify-content: right;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    
+  }
+
+.forgot{
+    text-align: right;
+    justify-content: right;
+    padding-right: 0%;
+}
+
+.loginButt{
+    margin-top: 50px;
+    font-weight: bold;
+    width: 140px;
+}
+
+.textSize{
+    margin-top: -22px;
+    font-size: 13px;
+}
+.checkbox1{
+    display: flex;
+    margin-top: 1px;
+    justify-content: space-between;
+}

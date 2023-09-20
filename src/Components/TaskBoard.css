@@ -1,0 +1,135 @@
+.TaskBoardMain{
+    color: #1c447c;
+}
+
+.TaskBoardMainInside{
+    margin-top: 18px;
+    margin-right: 500px;
+    width: 37%;
+    margin-left: 20px;
+    border: 1.2px solid #1c447c;
+    /* padding: 6px; */
+    
+}
+.tasksList{
+    margin-right: auto;
+}
+.boxCage{
+    display: flex;
+    margin-left: 25px;
+    margin-top: -20px;
+}
+
+.addTaskButt{
+   width: 35px; 
+  height: 35px;
+  border-radius: 50%;
+  background-color: #1c447c;
+  color: #fff; 
+  border: none; 
+  cursor: pointer;
+  font-size: 16px;
+  outline: none; 
+  font-size: 30px;
+  
+}
+.butt1{
+    margin-left: auto;
+    font-size: large;
+    font-weight: bolder;
+}
+.addTaskButt2{
+    justify-content: center;
+    margin-top: 9px;
+    margin-right: 14px;
+
+}
+.label1{
+    margin-left: 8px;
+    margin-top: 16px;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    font-size: larger;
+    
+  }
+  
+  .task-list label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px ;
+    margin-left: 20px;
+  }
+  
+  .task-list input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #1c447c; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    cursor: pointer;
+  }
+  
+  .task-list  input[type="checkbox"]:checked  {
+    background-color: #2bc61d;
+    border: 2px solid #2bc61d;
+    color: #2bc61d;
+  }
+
+  .completed2{
+    
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin-left: 5px;
+    /* margin-bottom: 20px; */
+  }
+
+  .completedTasks {
+    padding: 20px;
+    color: #2bc61d;
+  }
+  
+  .completedTasks h2 {
+    color: #1c447c;
+    font-size: 10px;
+    /* margin-bottom: 10px; */
+  }
+  
+  .completedTasks .task-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .completedTasks .task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1px 0;
+    font-size: larger;
+  }
+  
+  .completedTaskLabel {
+    color: #2bc61d; /* Color for completed task labels */
+  }
+
+.pencil{
+    margin-right: 20px;
+    margin-bottom: 100px;
+}

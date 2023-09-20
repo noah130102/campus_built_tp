@@ -1,0 +1,42 @@
+import React, { useState, useEffect } from "react";
+import "./Head.css";
+
+const Head = () => {
+  const [randomImage, setRandomImage] = useState("");
+
+  useEffect(() => {
+    // Fetch the random image from the API
+    fetch("https://random.imagecdn.app/500/150")
+      .then((response) => {
+        if (response.ok) {
+          return response.url;
+        } else {
+          throw new Error("Error fetching random image");
+        }
+      })
+      .then((imageUrl) => {
+        // Set the random image URL in the state
+        setRandomImage(imageUrl);
+      })
+      .catch((error) => {
+        console.error("Error fetching random image:", error);
+      });
+  }, []);
+
+  return (
+    <header className="header">
+      <div className="logo">
+        <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPEhAQDxATDhAQFRIXFRAXFRkYEhsYFhYYGBgWGRkaHyojIR0lGxcWITIlJyouMDAvFx8zOD8tNygtMCsBCgoKDg0OFhAQGisdHR8tLi0tLTctLS0rLS0tNy0tLS0tLS0tLS0tKy0tLS02LS0rLS0tLS0tLS0tLi0tNzctN//AABEIAMgAyAMBIgACEQEDEQH/xAAcAAEBAQADAQEBAAAAAAAAAAAABwYEBQgDAgH/xABFEAABAwIBBwUNBgUEAwAAAAABAAIDBBEFBgcSEyExQVFhcYGyFCIzNDU2QnJzdISRoRUjYrPCwyQyU7HBgtHS4RclUv/EABkBAQADAQEAAAAAAAAAAAAAAAACAwQBBf/EACYRAAICAgEDBAMBAQAAAAAAAAABAgMRIQQSMXEyQUJRIjOBE2H/2gAMAwEAAhEDEQA/AMIiIvdPMCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIi/cUTnkNY0vc42DQLuJPABOwPwuZheFz1TxFTxOleeAG7nJ3Ac5W7yWzWyy6MlcTBHv1I8Keng0fXoVWwnCYKRgjp4mxM5ANpPK4naTzlZLeVGOo7ZfChvbJNLmmqxAHtmjdUbzBubbkDzx6rc6wdfQy07zFPG6KRu9rhYr1GusxvAqauZq6mISDbZ257edrhtCor5ck/yLJUJ9jzOuRQ0UtQ8RQxulkdua0XK7Y4JH9pdw6TtV3TqtLZp6Ono33WvZXrA8CpqFmrpohGNl3b3u53OO0rTbyFBLHuUwqcmSuHNNVGAvdNGyo3iDe23IXjj1Ec6w+KYXPSvMVRE6J44Eb+cHcRzhen1wsVwmCrYYqiJsrDwI2g8oI2g84WaHLkn+RdKhNaPMKKj5U5rZYtKShcZ49+pd4UdB3OH16VO5YnMcWvaWOabFpFnAjgQt0LIzWmZpQce5+ERFYRCIiAIiIAiIgCIiAIiIAiIgO/yNyYficzomyNiaxuk95FzYm3ejiVbsmskqTDx9zHpSW2zO2yHr4DmFlO8yHjFT7JvbCsS83lWS6nHOjZTFdOQixmH5aOqMTfQMiDI4taHPJu9zo9mwDYBfp6ls1mlFx7lqafYndXlrUOxWOgja2KFswY92979l+O4dHzVEUUPnD8T+lWtW3RUenH0QrbeckGPl34/91XpQU+Xfj/3VelLk/HwRp9ydUuW1QzFZKCRrZYXTaDDuezZfeN4vy/NURRR3nD8SOyrWoXRS6cfRKtt5C6HKXJOkxBv30dpLd7M3ZIOviOY3XV4jlm6nxNlA+IPjl1Ia8Gz2uk2bRuIv0LZKH5QwyeVLKPOmWWS78MmbG6RsrZAXMeBY2Bt3w4FZ9UrPf4xS+yd2lNV6tMnKCbMNkUpNIIiK0gEREAREQBERAEREAXKoMPmqHFsEbpSBc6IvYcpPAdK2ebnIeLEWOqJ5HCOOQs1TdhJDWu2u4DvgNirQwyClppY6eJsLAx+xot6J2k8TzlZbeSovC7l0KW1lkxzIeMVPsm9sKxKO5kPGKn2Te2FYlk5P7GaKfQSHJPzgqvXq+0VXlIck/OCq9er7RVeXL+68IVdn5IofOH4n9KtiiZ84fif0q2LvI+Pg5V8vJBT5d+P/AHVelBT5d+P/AHVel3k/Hwcp9yJu84viR2VbFE3ecXxI7Kti5yPj4O1e/kkOVvl+k9ek7QVdUiyt8v0nr0naCrq5d2h4O195eSPZ7/GKX2Tu2p/X4fNTuDZ43REgEaQtccoPEdCoGe/xil9k7tqmDDYKqmijqImzMMbNjhf0RtHIecLRG7/OuGip19c5HmlFvs42Q0WHsbUU8jtW+QM1TtpBLXO2O4jvSNvzWBWuFimsoolFxeGERFMiEREAREQBERAWvMn4lN7y/wDLiW4xLwMvqP7JWHzJ+Ize8v8Ay4luMS8DL6j+yV49v7H5N8PQiS5kPGKn2Te2FYlHcyHjFT7JvbCsSlyf2M5T6CQ5J+cFV69X/cqvKJ4bi8NHjlVNUOLI9bUtLrE2LnG17cFZqSqjmaJIntkY7c9pBaeghL08xf8AwVPTRGj5w/E/pVsUTPnD8T+lWxd5Hx8HKvl5IKfLvx/7qvSgp8u/H/uq9LvJ+Pg5T7kTd5xfEjsq1qKO84viR2VZauqjhaZJXtjY3e9xAaOklcv+Pg7V7+ST5W+X6T16TtBV9RLFMXhrMbpZqdxfHraZodYi5a4XtfgrYuXJpRz9Ha9uRHs9/jFL7J3bVYwrwMPs4+yFJ89/jFL7J3bVYwrwMPs4+yF2z9UP6ch65GJz1+Ixe8M/LlUTVsz1+Ixe8M/LlUTWviegov8AWERFqKQiIgCIiAIiIC15k/EZveX/AJcS3GJeBl9R/ZKw+ZPxKb3l/wCXEtxiXgZfUf2SvHt/Y/Jvh6ESXMh4xU+yb2wrEoXmpxuno6iU1MmqbKwNa4jvbh19pG7ZxVxhla8BzHB7XC4cDcEcxCnyU+sjS/xMxlNkFR1+k8t1E5udczZc/jbud/fnU7nwTF8DeZadxkhvdzmXdGQP6kfDp+qtyKELpRWHtEpVp7WmQHJvEXVeL09Q9oa6WYOIG69rbFf15+yZ8sRe9P7Tl6AVvK7rH0Qo7Mgx8vfH/uq8qNHJ2s+2df3NLqe7NPWaJ0NHWX0r8llZVHkNPpx9Hak1kgWU2IupcXnqGNDnRTaQB3X0bbVz4MFxfHXiWocY4N4c+7YgD/Tj49P1XW5VeWJfeY/7tXoAK62zojHC3grhDqb3oymTGQVHQaLw3uidtjrn8Dysbub/AH51rEXzmlaxpc9wY1ouXE2AHOSsUpOTyzSkorRIc9/jFL7J3bVYwvwMPs4+yFFc6+OU9ZURdzSa0RMLXOA72+lfYePSrVhfgYfZx9kLRamq4ZKoPM5GJz1+Ixe8M/LlUTVsz1+Ixe8M/LlUTWriegov9YREWopCIiAIiIAiIgLTmUI7imHHuh/1jiVCXl/DMTnpXiSnldC8cWm1+YjiOYqm5NZ1wdGPEI9E7tfGNnS5m/5fJedfx5dTktmqq2OMM0GU+bqjrNJ8Y7kmPpsHeE/iZu+VlP3wYvgDrtJdBfeLvp3dI9E/Iq04fiENQwSQSNlYfSabjo5jzLkPYHAggEHYQdxCpjdKOpbRY609rTM3kNlV9pxPeYtU+Jwa4Xu0ki92/wDa0y6/CsFp6QyGnjEIlIc5rf5bjkG4dS7BVyab12JxTxs88YTWx0+KtmldoRsqZC51ibDSO3YvQNLVRytEkT2yMcLh7SC09BCwGVmbCKoL5qN+omcSTG65icTv2727ekdCn9PV4lgk2jZ8BJ2xu2wvA47Nh6RtWuUY3pOL2ihN191o9Cr41VTHE10kr2xsaLl7iAB0kqbf+Xo9RfuZ3dO7Qv8Adetpb7c1utYmoq8SxubRs+cg7I27IWA8eQdJ2qqPGl8tIm7l7bPzjVbHUYo6aF2nG+ojLXWIuNJu3avQ6nOSebCKnLJqx+vlaQRG24jaRyne7b0DpVGTkTjLCj7CqLWW/czWXOVIwyFkgi1r5HFrRezQbXu48imLIcYx913EiC+83ZTN6AP5j8yrHiuC09WY+6IxMInFzWu/lva1yNx61zY2BoAaAANgA2AWUYWqEdLZ2UHJ7ejH5MZuqOj0XyDuuYem8d4D+Fm753WzXFr6+GnYZJ5GxMHpONh0c5U2ylzrgXjw9mlw18g2dLWb/n8kUbLX9nW4wR2Weo/wUQ490M/LkUVXMxPE56p5kqJXTPPFxvbmA3AcwXDXo01/5xwzHZPqlkIiK4gEREAREQBERAEREB2eCVtZTudNRukYYwC9zLlob+MbrdKpGTWddjrR17NWd2vYCWf6m7x1X6AuszIj+IqvZDtha/KbNzR1l3xDuSY+mwd4T+Jm75WWG6dbm4zX9NFcZdOYs1lFWxTsEkMjZWHc5pBH0XIUErMIxXA3mVhc1l/DR99C71wf1BbDJrOrFJaOvZqXf1mAmM9Ld4+vUqJcd4zB5RarV2lplLXFxDD4alhinjbKw+i4XHSOQ86+lJVRzNEkT2yMdue0gtPWF9ln2i3uQE4FB9sdxaJ7n1+jo6Rvo2vbS3q6Ydh8NMwRQRtijHotFh0nlPOo87zh+JHZVrWnkSb6fBTSls/q/i+NVVRwtMkr2xsbve4gNHWVOspc6sUd2ULNe7drngiMdDd7vp1qmFcpvSLZTUe5Q62tigYZJpGxMbvc4gD5lTjKXOuxulHQM1h3a94IZ0tZvPXboKydJhOK448SPLnsv4aTvYW+oP8AiFR8ms3FHR2fKO65h6Tx3gP4Wf73V/RXX6nl/RV1Tn6dIjeOVtZUFs1Y6R+sBLHPBDSPwDdboXWKk57h9/S+yd21NlupkpQTwZrFiTQREVpAIiIAiIgCIiAIiIAiIgNlmwyhp6CokNSXMZKwNDwLgEOv31ttrK5UdXHM0SRPbKx257SC09YXltdlgmO1NE7TppXR8rd7D6zTsKyXcbrfUnsvru6VhnpdzQRYi4O8cFhsps2dJU3fT/wkp/8AkfdE87OHV8iuJkznTgmtHWt7mk3awXMRPPxb9RzqhQTNkaHscHsdtDmkFpHMQsWLKn9Gj8ZokGSGBYjhmIwRSh7YJXPDnMJMD7McRfnuONirGi6LKPKqkw9t55LvI72Fu2Q9XAc52JKTta1sRSgu5MXecXxI7Kta86nKT/2P2jqtmt1mq0uFrW0rf4VtybyrpMQbeCS0gHfQu2SDq4jnFwruRCSUXj2K6ZLaJ1ljgeI4liM8UQe6CJzA1zyRAy8bCbc9zwuVp8mc2dJTaL6n+LlHBwtEDzM49fyW7XznmbG0ve4Ma0XLnGzQOUkqp3ycVFaRYq4p5Z+mNAAAFgNgHBfOrq44WmSV7YmN3vcQGjrKwGU2dOCG8dE3umT+obiEdHF30HOpZjePVNa/TqZXScjdzB6rRsCnXxZy29IhO6Me2zQZz8oqevniNMXPZCwtLyLNJLr97fbZYxEXowgoJRRklJyeWERFM4EREAREQBERAEREAREQBERAF3GAZTVdA69PKWtvtiO2M9Lf8jaunRccVJYezqbW0ULGM61VNE2OCNtM8jv5QdI/6ARs+u9YGeZ0ji97i97jcucbuJPKV80UIVxh2R2UnLuF9IJnRuD2OLHtNw5ps4EcQV80VjREoWD51qqGIxzxtqXgd5KTom/47Db9NyyuUGU1XXuvUSlzb7IhsjHQ3/J2rp0VaqhF5SJOcmsNhERWEQiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiID/9k="
+          alt="fetching..."
+        />
+      </div>
+      <div className="name"> TaskBoard</div>
+      <div className="image2">
+        <img src={randomImage} alt="fetching...." />
+      </div>
+    </header>
+  );
+};
+
+export default Head;
